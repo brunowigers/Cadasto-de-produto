@@ -9,15 +9,15 @@ def cadastrar_produtos():
     return (formatar_nome(nome), preco, categoria)
 
 def salvar_produtos(produto):
-    with open("produtos. txt", "a", encoding="utf-8") as arquivo:
+    with open("produtos.txt", "a", encoding="utf-8") as arquivo:
         linha = f"{produto[0]};{produto[1]};{produto[2]}\n"
         arquivo.write(linha)
 
 def listar_produtos():
     try:
-        with open("produtos. txc", "r", encoding="utf-8") as arquivo:
+        with open("produtos.txt","r", encoding="utf-8") as arquivo:
             for linha in arquivo: 
-                nome, preco, categoria = linha.strip((";"))
+                nome, preco, categoria = linha.strip(). split(";")
                 print(f"produto: {nome} | preço: R${preco} | categoria: {categoria} ")
     except FileNotFoundError:
         print("nenhum produto cadastrado ainda.")
